@@ -5,6 +5,8 @@ export default class Cookbooks extends Component {
     loading: true,
   };
 
+  // TODO: Fix CORS error. Right now I'm using an extension in Chrome to make the error go away, but it will br a problem on other's machines.
+
   async componentDidMount() {
     const url = 'https://localhost:5001/api/recipes/';
     //const url = 'https://api.randomuser.me/';
