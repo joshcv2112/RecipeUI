@@ -1,29 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import SearchIcon from '@material-ui/icons/Search';
-import TodayIcon from '@material-ui/icons/Today';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import KitchenIcon from '@material-ui/icons/Kitchen';
-import SettingsIcon from '@material-ui/icons/Settings';
-
-// Drawer component from: https://material-ui.com/components/drawers/
-// The examples at this link show how to dynamically show items in drawer (with lists).
+import NewDrawer from './NewDrawer';
 
 const drawerWidth = 240;
 
+// Vet this CSS, it is duplicated in NewDrawer.js.
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -53,62 +35,7 @@ export default function PermanentDrawerLeft() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
-      <AppBar position='fixed' className={classes.appBar}>
-        <Toolbar>
-          <Typography variant='h6' noWrap>
-            RecipeUI
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant='permanent'
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        anchor='left'
-      >
-        <div className={classes.toolbar} />
-        <Divider />
-        <ListItem button key={'Cookbooks'}>
-          <ListItemIcon>
-            <MenuBookIcon />
-          </ListItemIcon>
-          <ListItemText primary={'Cookbooks'} />
-        </ListItem>
-        <ListItem button key={'Search'}>
-          <ListItemIcon>
-            <SearchIcon />
-          </ListItemIcon>
-          <ListItemText primary={'Search'} />
-        </ListItem>
-        <ListItem button key={'Meal Planner'}>
-          <ListItemIcon>
-            <TodayIcon />
-          </ListItemIcon>
-          <ListItemText primary={'Meal Planner'} />
-        </ListItem>
-        <ListItem button key={'Grocery List'}>
-          <ListItemIcon>
-            <ListAltIcon />
-          </ListItemIcon>
-          <ListItemText primary={'Grocery List'} />
-        </ListItem>
-        <ListItem button key={'Pantry'}>
-          <ListItemIcon>
-            <KitchenIcon />
-          </ListItemIcon>
-          <ListItemText primary={'Pantry'} />
-        </ListItem>
-        <Divider />
-        <ListItem button key={'Settings'}>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText primary={'Settings'} />
-        </ListItem>
-      </Drawer>
+      <NewDrawer></NewDrawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
