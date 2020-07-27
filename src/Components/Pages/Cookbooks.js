@@ -8,8 +8,9 @@ export default class Cookbooks extends Component {
   // TODO: Fix CORS error. Right now I'm using an extension in Chrome to make the error go away, but it will br a problem on other's machines.
 
   async componentDidMount() {
-    const url = 'https://localhost:5001/api/recipes/';
-    //const url = 'https://api.randomuser.me/';
+    // Using proxy (see package.json) for API calls to RecipeAPI.
+    // This will work as long as I'm only using one API domain.
+    const url = '/api/recipes/';
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
