@@ -61,7 +61,7 @@ export default function PermanentDrawerLeft() {
           <Toolbar>
             <Typography variant='h6' noWrap>
               <Switch>
-                <Route path='/'>Home</Route>
+                <Route path='/'>Kitchen Assistant</Route>
                 <Route path='/cookbooks'>Cookbooks</Route>
                 <Route path='/search'>Search</Route>
                 <Route path='/meal-planner'>Meal Planner</Route>
