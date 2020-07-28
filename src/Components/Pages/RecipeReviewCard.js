@@ -12,7 +12,7 @@ import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    minWidth: 200,
   },
   media: {
     height: 0,
@@ -26,21 +26,24 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard(props) {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        title={props.recipe.title}
-        subheader={props.recipe.prepTime}
-      />
-      <CardMedia
-        className={classes.media}
-        image='https://assets.bonappetit.com/photos/5f1b04ecda927390827b1c79/3:2/w_2560,c_limit/Basically-SaffronSalmon-RecipeB.jpg'
-        title={props.recipe.title}
-      />
-      <CardContent>
-        <Typography variant='body2' color='textSecondary' component='p'>
-          {props.recipe.description}
-        </Typography>
-      </CardContent>
-    </Card>
+    // TODO: Make this link to the actual recipe detail screen.
+    <a href='https://www.google.com/'>
+      <Card className={classes.root}>
+        <CardHeader
+          title={props.recipe.title}
+          subheader={props.recipe.prepTime}
+        />
+        <CardMedia
+          className={classes.media}
+          image='https://assets.bonappetit.com/photos/5f1b04ecda927390827b1c79/3:2/w_2560,c_limit/Basically-SaffronSalmon-RecipeB.jpg'
+          title={props.recipe.title}
+        />
+        <CardContent>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            {props.recipe.description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </a>
   );
 }

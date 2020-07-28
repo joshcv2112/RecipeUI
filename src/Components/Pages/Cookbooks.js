@@ -20,8 +20,6 @@ export default class Cookbooks extends Component {
     loading: true,
   };
 
-  // TODO: Fix CORS error. Right now I'm using an extension in Chrome to make the error go away, but it will br a problem on other's machines.
-
   async componentDidMount() {
     // Using proxy (see package.json) for API calls to RecipeAPI.
     // This will work as long as I'm only using one API domain.
@@ -39,33 +37,12 @@ export default class Cookbooks extends Component {
           <div>loading...</div>
         ) : (
           <div>
-            <Grid container spacing={3}>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[0]} />
-              </Grid>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[1]} />
-              </Grid>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[2]} />
-              </Grid>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[3]} />
-              </Grid>
-            </Grid>
-            <Grid container spacing={3}>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[4]} />
-              </Grid>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[5]} />
-              </Grid>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[6]} />
-              </Grid>
-              <Grid item xs={3}>
-                <RecipeReviewCard recipe={this.state.recipe[7]} />
-              </Grid>
+            <Grid container spacing={2} justify={'center'}>
+              {this.state.recipe.map((name) => (
+                <Grid item xs={12} sm={6} md={4}>
+                  <RecipeReviewCard recipe={name} />
+                </Grid>
+              ))}
             </Grid>
           </div>
         )}
@@ -73,9 +50,3 @@ export default class Cookbooks extends Component {
     );
   }
 }
-
-// export default function CenteredGrid() {
-//   const classes = useStyles();
-
-//   return <div className={classes.root}></div>;
-// }
