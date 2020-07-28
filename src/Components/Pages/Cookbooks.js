@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import RecipeReviewCard from './RecipeReviewCard';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
 export default class Cookbooks extends Component {
   state = {
     loading: true,
   };
-
-  // TODO: Fix CORS error. Right now I'm using an extension in Chrome to make the error go away, but it will br a problem on other's machines.
 
   async componentDidMount() {
     // Using proxy (see package.json) for API calls to RecipeAPI.
@@ -13,26 +26,24 @@ export default class Cookbooks extends Component {
     const url = '/api/recipes/';
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
-    this.setState({ recipe: data[15], loading: false });
+    this.setState({ recipe: data, loading: false });
   }
 
   render() {
     return (
       <div>
-        <h2>Your Recipes</h2>
+        <h1>Your Recipes</h1>
         {this.state.loading ? (
           <div>loading...</div>
         ) : (
-          // Make this show cards for each recipe instead of a single one.
           <div>
-            <div>Title: {this.state.recipe.title}</div>
-            <div>Instructions: {this.state.recipe.description}</div>
-            <div>Ingredients: {this.state.recipe.ingredients}</div>
-            <div>Instructions: {this.state.recipe.instructions}</div>
-            <div>Rating: {this.state.recipe.rating}</div>
-            <div>Prep Time: {this.state.recipe.prepTime}</div>
-            <div>Source: {this.state.recipe.source}</div>
+            <Grid container spacing={2} justify={'center'}>
+              {this.state.recipe.map((name) => (
+                <Grid item xs={12} sm={6} md={4}>
+                  <RecipeReviewCard recipe={name} />
+                </Grid>
+              ))}
+            </Grid>
           </div>
         )}
       </div>
