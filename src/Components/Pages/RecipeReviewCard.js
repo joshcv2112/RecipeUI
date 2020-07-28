@@ -13,6 +13,7 @@ import { red } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 200,
+    maxWidth: 500,
   },
   media: {
     height: 0,
@@ -27,23 +28,23 @@ export default function RecipeReviewCard(props) {
   const classes = useStyles();
   return (
     // TODO: Make this link to the actual recipe detail screen.
-    <a href='https://www.google.com/'>
-      <Card className={classes.root}>
+    <Card className={classes.root}>
+      <a href={props.recipe.source}>
         <CardHeader
           title={props.recipe.title}
           subheader={props.recipe.prepTime}
         />
         <CardMedia
           className={classes.media}
-          image='https://assets.bonappetit.com/photos/5f1b04ecda927390827b1c79/3:2/w_2560,c_limit/Basically-SaffronSalmon-RecipeB.jpg'
+          image={props.recipe.imageURL}
           title={props.recipe.title}
         />
-        <CardContent>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            {props.recipe.description}
-          </Typography>
-        </CardContent>
-      </Card>
-    </a>
+      </a>
+      <CardContent>
+        <Typography variant='body2' color='textSecondary' component='p'>
+          {props.recipe.description}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
