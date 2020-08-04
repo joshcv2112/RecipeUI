@@ -3,6 +3,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Home from './Components/Home';
 import Recipes from './Components/Recipes';
 import Category from './Components/Category';
+import CreateRecipe from './Components/CreateRecipe';
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/recipes'>Recipes</Link>
+              <Link to='/recipes'>Cookbook</Link>
             </li>
             <li>
               <Link to='/category'>Category</Link>
@@ -26,6 +27,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route path='/category' component={Category} />
           <Route path='/recipes' component={Recipes} />
+          <Route path='/create/recipe' component={CreateRecipe} />
         </Switch>
       </div>
     );

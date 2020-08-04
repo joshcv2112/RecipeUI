@@ -8,7 +8,7 @@ class Product extends Component {
     if (this.props.data)
       recipeData = (
         <div>
-          <h3> {recipe.title} </h3>
+          <h3>{recipe.title} </h3>
           <p>{recipe.prepTime}</p>
           <p>{recipe.rating} stars</p>
           <img src={recipe.imageURL} style={{ minWidth: 799, maxWidth: 800 }}></img>

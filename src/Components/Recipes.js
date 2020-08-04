@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import Product from './Product';
+import Button from 'react-bootstrap/Button';
 
 export default class Recipes extends Component {
   constructor(props) {
@@ -18,7 +19,10 @@ export default class Recipes extends Component {
   render() {
     return (
       <div>
-        <h1>Your Recipes</h1>
+        <h2>Your Cookbook</h2>
+        <Link to={'/create/recipe'}>
+          <Button variant="primary">Create Recipe</Button>
+        </Link>
         {this.state.loading ? (
           <div>loading...</div>
         ) : (
