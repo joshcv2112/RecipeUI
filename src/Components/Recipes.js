@@ -24,7 +24,7 @@ export default class Recipes extends Component {
           <Button variant="primary">Create Recipe</Button>
         </Link>
         {this.state.loading ? (
-          <div>loading...</div>
+          <div>loading . . .</div>
         ) : (
             <div>
               <div>
