@@ -4,29 +4,34 @@ import Button from 'react-bootstrap/Button';
 
 class CreateRecipe extends Component {
     render() {
-        if (this.props.title == null) {
-            return (
-                // Look at flex box or some other layout thing so I can position these two things the way I want to.
-                <div>
-                    <h5>Recipe Preview</h5>
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    <h5>{this.props.title}</h5>
-                    <h5>{this.props.title}</h5>
-                    <h5>{this.props.title}</h5>
-                    <h5>{this.props.title}</h5>
-                    <h5>{this.props.title}</h5>
-                    <h5>{this.props.title}</h5>
-                    <h5>{this.props.title}</h5>
-                    <h5>{this.props.title}</h5>
-                </div>
+        return (
+            <div style={{ display: 'flex' }}>
+                <div
+                    style={{
+                        padding: '0 10% 0 10%',
+                        width: '80%',
+                        margin: 'auto',
+                        background: '#ffffff',
+                    }}
+                >
+                    <div>
+                        {this.props.title == '' ? (
+                            <p>Placeholder</p>
+                        ) : (
+                                <div>
+                                    <h3>{this.props.title} </h3>
+                                </div>
+                            )}
+                        {this.props.description == '' ? (
+                            <p>Placeholder</p>
+                        ) : (
+                                <p>{this.props.description}</p>
+                            )}
 
-            );
-        }
-
+                    </div >
+                </div>
+            </div>
+        );
     }
 }
 

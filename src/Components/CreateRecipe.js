@@ -4,57 +4,76 @@ import RecipePreview from './RecipePreview';
 class CreateRecipe extends Component {
     constructor(props) {
         super(props);
-        this.state = { recipeTitle: '' };
-
-        this.handleChange = this.handleChange.bind(this);
+        this.state = { title: '', description: '' };
     }
 
-    handleChange(event) {
-        this.setState({ recipeTitle: event.target.value });
+    handleChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
     }
 
-    // Using this https://reactjs.org/docs/forms.html to help build forms. no fancy libraries yet.
     render() {
         return (
             <div>
-                <div style={{ display: 'inline-block', border: 'solid 1px red', width: 300, height: "100vh" }}>
-                    <form>
-                        <label>
-                            Recipe Name:
-                            <input type="text" value={this.state.recipeTitle} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            Description:
-                            <input type="text" value={this.state.recipeTitle} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            Ingredients:
-                            <textarea></textarea>
-                        </label>
-                        <label>
-                            Direcitons:
-                            <textarea></textarea>
-                        </label>
-                        <label>
-                            Image URL:
-                            <input type="text" value={this.state.recipeTitle} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            Source:
-                            <input type="text" value={this.state.recipeTitle} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            Rating:
-                            <input type="text" value={this.state.recipeTitle} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            Prep Time:
-                            <input type="text" value={this.state.recipeTitle} onChange={this.handleChange} />
-                        </label>
-                    </form>
-                </div>
-                <div style={{ display: 'inline-block', border: 'solid 1px blue', width: 1000 }}>
-                    <RecipePreview title={this.state.recipeTitle} />
+                <div style={{ display: 'block', justifyContent: 'space-between' }}>
+                    <div style={{
+                        float: 'left',
+                        padding: '10px',
+                        width: '30%',
+                        background: '#f0f0f0',
+                        marginLeft: 'auto',
+                    }}>
+                        <form>
+                            <div>
+                                <label>
+                                    Recipe Name:
+                                    <input type="text" name="title" value={this.state.recipeTitle} onChange={this.handleChange.bind(this)} />
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Description:
+                                    <input type="text" name="description" value={this.state.description} onChange={this.handleChange.bind(this)} />
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Ingredients:
+                                    <input type="text" value={this.state.ingredients} />
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Direcitons:
+                                    <input type="text" value={this.state.directions} />
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Image URL:
+                                    <input type="text" value={this.state.imageURL} />
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Source:
+                                    <input type="text" value={this.state.source} />
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Rating:
+                                    <input type="text" value={this.state.rating} />
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Prep Time:
+                                    <input type="text" value={this.state.prepTime} />
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    <RecipePreview title={this.state.title} description={this.state.description} />
                 </div>
             </div>
         );
