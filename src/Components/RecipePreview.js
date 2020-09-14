@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 class CreateRecipe extends Component {
     render() {
@@ -15,37 +13,37 @@ class CreateRecipe extends Component {
                     }}
                 >
                     <div>
-                        {this.props.title == '' ? (
+                        {this.props.title === '' ? (
                             <p></p>
                         ) : (
                                 <h3>{this.props.title} </h3>
                             )}
-                        {this.props.prepTime == '' ? (
+                        {this.props.prepTime === '' ? (
                             <p></p>
                         ) : (
                                 <p>{this.props.prepTime}</p>
                             )}
-                        {this.props.rating == '' ? (
+                        {this.props.rating === '' ? (
                             <p></p>
                         ) : (
                                 <p>{this.props.rating} stars</p>
                             )}
-                        {this.props.imageURL == '' ? (
+                        {this.props.imageURL === '' ? (
                             <p></p>
                         ) : (
-                                <img src={this.props.imageURL} style={{ minWidth: 799, maxWidth: 800 }}></img>
+                                <img src={this.props.imageURL} style={{ minWidth: 799, maxWidth: 800 }} alt="recipeImage"></img>
                             )}
-                        {this.props.description == '' ? (
+                        {this.props.description === '' ? (
                             <p></p>
                         ) : (
                                 <p>{this.props.description}</p>
                             )}
-                        {this.props.source == '' ? (
+                        {this.props.source === '' ? (
                             <p></p>
                         ) : (
                                 <a href={this.props.source}>{this.props.source}</a>
                             )}
-                        {this.props.ingredients == '' ? (
+                        {this.props.ingredients === '' ? (
                             <p></p>
                         ) : (
                                 <div>
@@ -53,7 +51,7 @@ class CreateRecipe extends Component {
                                     <p>{this.props.ingredients}</p>
                                 </div>
                             )}
-                        {this.props.directions == '' ? (
+                        {this.props.directions === '' ? (
                             <p></p>
                         ) : (
                                 <div>

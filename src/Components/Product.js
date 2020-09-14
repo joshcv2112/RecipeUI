@@ -11,7 +11,7 @@ class Product extends Component {
           <h3>{recipe.title} </h3>
           <p>{recipe.prepTime}</p>
           <p>{recipe.rating} stars</p>
-          <img src={recipe.imageURL} style={{ minWidth: 799, maxWidth: 800 }}></img>
+          <img src={recipe.imageURL} style={{ minWidth: 799, maxWidth: 800 }} alt="recipeImage"></img>
           <p>{recipe.description}</p>
           <a href={recipe.source}>{recipe.source}</a>
           <hr />
